@@ -7,7 +7,7 @@ info:
   contact: 
     name: Todoist Developer
     url: https://developer.todoist.com/
-  version: 1.0.0
+  version: 1.1.0
   x-definition-date: 2023-11-16
 
   x-definition-author: aaddrick
@@ -655,8 +655,6 @@ paths:
       summary: Create a new task
       description: |
         Creates a new task and returns it as a JSON object.
-
-        A successful response has 200 OK status and application/json Content-Type.
       externalDocs: 
         description: Documentation at link below
         url: https://developer.todoist.com/rest/v2/#create-a-new-task
@@ -665,114 +663,67 @@ paths:
         - Tasks
       security:
         - api_key: []
-      parameters:
-        - in: query
-          name: content
-          schema:
-            type: string
-          required: true
-          description: Task content. This value may contain markdown-formatted text and hyperlinks.
-
-        - in: query
-          name: description
-          schema:
-            type: string
-          required: false
-          description: A description for the task. This value may contain markdown-formatted text and hyperlinks.
-
-        - in: query
-          name: project_id
-          schema:
-            type: string
-          required: false
-          description: Task project ID. If not set, the task is put in the user's Inbox.
-
-        - in: query
-          name: section_id
-          schema:
-            type: string
-          required: false
-          description: ID of the section to put the task into.
-
-        - in: query
-          name: parent_id
-          schema:
-            type: string
-          required: false
-          description: Parent task ID.
-
-        - in: query
-          name: order
-          schema:
-            type: integer
-          required: false
-          description: Non-zero integer value used by clients to sort tasks under the same parent.
-
-        - in: query
-          name: labels
-          schema:
-            type: array
-            items:
-              type: string
-          required: false
-          description: The task's labels (a list of names that may represent either personal or shared labels).
-
-        - in: query
-          name: priority
-          schema:
-            type: integer
-          required: false
-          description: Task priority from 1 (normal) to 4 (urgent).
-
-        - in: query
-          name: due_string
-          schema:
-            type: string
-          required: false
-          description: Human-defined task due date (ex. "next Monday," "Tomorrow"). Value is set using local (not UTC) time.
-
-        - in: query
-          name: due_date
-          schema:
-            type: string
-          required: false
-          description: Specific date in YYYY-MM-DD format relative to the user's timezone.
-
-        - in: query
-          name: due_datetime
-          schema:
-            type: string
-          required: false
-          description: Specific date and time in RFC3339 format in UTC.
-
-        - in: query
-          name: due_lang
-          schema:
-            type: string
-          required: false
-          description: 2-letter code specifying the language in case due_string is not written in English.
-
-        - in: query
-          name: assignee_id
-          schema:
-            type: string
-          required: false
-          description: The responsible user ID (only applies to shared tasks).
-
-        - in: query
-          name: duration
-          schema:
-            type: integer
-          required: false
-          description: A positive (greater than zero) integer for the amount of duration_unit the task will take. If specified, you must define a duration_unit.
-
-        - in: query
-          name: duration_unit
-          schema:
-            type: string
-          required: false
-          description: The unit of time that the duration field above represents. Must be either minute or day. If specified, duration must be defined as well.
-
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: Task content. This value may contain markdown-formatted text and hyperlinks.
+                description:
+                  type: string
+                  description: A description for the task. This value may contain markdown-formatted text and hyperlinks.
+                project_id:
+                  type: string
+                  description: Task project ID. If not set, the task is put in the user's Inbox.
+                section_id:
+                  type: string
+                  description: ID of the section to put the task into.
+                parent_id:
+                  type: string
+                  description: Parent task ID.
+                order:
+                  type: integer
+                  description: Non-zero integer value used by clients to sort tasks under the same parent.
+                labels:
+                  type: array
+                  items:
+                    type: string
+                  description: The task's labels (a list of names that may represent either personal or shared labels).
+                priority:
+                  type: integer
+                  description: Task priority from 1 (normal) to 4 (urgent).
+                due_string:
+                  type: string
+                  description: Human-defined task due date (ex. "next Monday," "Tomorrow"). Value is set using local (not UTC) time.
+                due_date:
+                  type: string
+                  description: Specific date in YYYY-MM-DD format relative to the user's timezone.
+                due_datetime:
+                  type: string
+                  description: Specific date and time in RFC3339 format in UTC.
+                due_lang:
+                  type: string
+                  description: 2-letter code specifying the language in case due_string is not written in English.
+                assignee_id:
+                  type: string
+                  description: The responsible user ID (only applies to shared tasks).
+                duration:
+                  type: integer
+                  description: A positive (greater than zero) integer for the amount of duration_unit the task will take. If specified, you must define a duration_unit.
+                duration_unit:
+                  type: string
+                  description: The unit of time that the duration field above represents. Must be either minute or day. If specified, duration must be defined as well.
+            example:
+              content: "Buy Milk"
+              description: "Milk to be bought from local store"
+              project_id: "2203306141"
+              labels: ["Shopping", "Urgent"]
+              priority: 4
+              due_string: "tomorrow at 12"
       responses:
         '200':
           description: Task created.
@@ -781,31 +732,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
               example: 
-                summary: Example response
-                value:
-                  creator_id: "2671355"
-                  created_at: "2019-12-11T22:36:50.000000Z"
-                  assignee_id: null
-                  assigner_id: null
-                  comment_count: 0
-                  is_completed: false
-                  content: "Buy Milk"
-                  description: ""
-                  due: 
-                    date: "2016-09-01"
-                    is_recurring: false
-                    datetime: "2016-09-01T12:00:00.000000Z"
-                    string: "tomorrow at 12"
-                    timezone: "Europe/Moscow"
-                  duration: null
-                  id: "2995104339"
-                  labels: []
-                  order: 1
-                  priority: 4
-                  project_id: "2203306141"
-                  section_id: null
-                  parent_id: null
-                  url: "https://todoist.com/showTask?id=2995104339"
+                creator_id: "2671355"
+                created_at: "2019-12-11T22:36:50.000000Z"
+                assignee_id: null
+                assigner_id: null
+                comment_count: 0
+                is_completed: false
+                content: "Buy Milk"
+                description: ""
+                due: 
+                  date: "2016-09-01"
+                  is_recurring: false
+                  datetime: "2016-09-01T12:00:00.000000Z"
+                  string: "tomorrow at 12"
+                  timezone: "Europe/Moscow"
+                duration: null
+                id: "2995104339"
+                labels: []
+                order: 1
+                priority: 4
+                project_id: "2203306141"
+                section_id: null
+                parent_id: null
+                url: "https://todoist.com/showTask?id=2995104339"
         default:
           description: Unexpected error
           content:
@@ -878,8 +827,6 @@ paths:
       summary: Update a task
       description: |
         Updates a specified task and returns it as a JSON object.
-
-        A successful response has 200 OK status and application/json Content-Type.
       externalDocs: 
         description: Documentation at link below
         url: https://developer.todoist.com/rest/v2/#update-a-task
@@ -895,75 +842,54 @@ paths:
           description: The ID of the task to update.
           schema:
             type: string
-        - in: query
-          name: content
-          required: false
-          description: Task content. This value may contain markdown-formatted text and hyperlinks.
-          schema:
-            type: string
-        - in: query
-          name: description
-          required: false
-          description: A description for the task. This value may contain markdown-formatted text and hyperlinks.
-          schema:
-            type: string
-        - in: query
-          name: labels
-          required: false
-          description: The task's labels (a list of names that may represent either personal or shared labels).
-          schema:
-            type: array
-            items:
-              type: string
-        - in: query
-          name: priority
-          required: false
-          description: Task priority from 1 (normal) to 4 (urgent).
-          schema:
-            type: integer
-        - in: query
-          name: due_string
-          required: false
-          description: Human-defined task due date (ex. "next Monday," "Tomorrow"). Value is set using local (not UTC) time.
-          schema:
-            type: string
-        - in: query
-          name: due_date
-          required: false
-          description: Specific date in YYYY-MM-DD format relative to the user's timezone.
-          schema:
-            type: string
-        - in: query
-          name: due_datetime
-          required: false
-          description: Specific date and time in RFC3339 format in UTC.
-          schema:
-            type: string
-        - in: query
-          name: due_lang
-          required: false
-          description: 2-letter code specifying the language in case due_string is not written in English.
-          schema:
-            type: string
-        - in: query
-          name: assignee_id
-          required: false
-          description: The responsible user ID or null to unset (for shared tasks).
-          schema:
-            type: string
-        - in: query
-          name: duration
-          required: false
-          description: A positive (greater than zero) integer for the amount of duration_unit the task will take, or null to unset. If specified, you must define a duration_unit.
-          schema:
-            type: integer
-        - in: query
-          name: duration_unit
-          required: false
-          description: The unit of time that the duration field above represents, or null to unset. Must be either minute or day. If specified, duration must be defined as well.
-          schema:
-            type: string
-
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: Task content. This value may contain markdown-formatted text and hyperlinks.
+                description:
+                  type: string
+                  description: A description for the task. This value may contain markdown-formatted text and hyperlinks.
+                labels:
+                  type: array
+                  items:
+                    type: string
+                  description: The task's labels (a list of names that may represent either personal or shared labels).
+                priority:
+                  type: integer
+                  description: Task priority from 1 (normal) to 4 (urgent).
+                due_string:
+                  type: string
+                  description: Human-defined task due date (ex. "next Monday," "Tomorrow"). Value is set using local (not UTC) time.
+                due_date:
+                  type: string
+                  description: Specific date in YYYY-MM-DD format relative to the user's timezone.
+                due_datetime:
+                  type: string
+                  description: Specific date and time in RFC3339 format in UTC.
+                due_lang:
+                  type: string
+                  description: 2-letter code specifying the language in case due_string is not written in English.
+                assignee_id:
+                  type: string
+                  description: The responsible user ID or null to unset (for shared tasks).
+                duration:
+                  type: integer
+                  description: A positive integer for the task duration, or null to unset. If specified, you must define a duration_unit.
+                duration_unit:
+                  type: string
+                  description: The unit of time for the duration. Must be either 'minute' or 'day'.
+            example:
+              content: "Buy Coffee"
+              description: "Coffee needed for the office"
+              labels: ["Office", "Urgent"]
+              priority: 2
+              due_string: "tomorrow at 9 AM"
       responses:
         '200':
           description: Task updated.
@@ -972,37 +898,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
               example: 
-                summary: Example response
-                value:
-                  creator_id: "2671355"
-                  created_at: "2019-12-11T22:36:50.000000Z"
-                  assignee_id: "2671362"
-                  assigner_id: "2671355"
-                  comment_count: 10
-                  is_completed: false
-                  content: "Buy Coffee"
-                  description: ""
-                  due: 
-                    date: "2016-09-01"
-                    is_recurring: false
-                    datetime: "2016-09-01T12:00:00.000000Z"
-                    string: "tomorrow at 12"
-                    timezone: "Europe/Moscow"
-                  duration: null
-                  id: "2995104339"
-                  labels: ["Food", "Shopping"]
-                  order: 1
-                  priority: 1
-                  project_id: "2203306141"
-                  section_id: "7025"
-                  parent_id: "2995104589"
-                  url: "https://todoist.com/showTask?id=2995104339"
+                creator_id: "2671355"
+                created_at: "2019-12-11T22:36:50.000000Z"
+                assignee_id: "2671362"
+                assigner_id: "2671355"
+                comment_count: 10
+                is_completed: false
+                content: "Buy Coffee"
+                description: ""
+                due: 
+                  date: "2016-09-01"
+                  is_recurring: false
+                  datetime: "2016-09-01T12:00:00.000000Z"
+                  string: "tomorrow at 12"
+                  timezone: "Europe/Moscow"
+                duration: null
+                id: "2995104339"
+                labels: ["Food", "Shopping"]
+                order: 1
+                priority: 1
+                project_id: "2203306141"
+                section_id: "7025"
+                parent_id: "2995104589"
+                url: "https://todoist.com/showTask?id=2995104339"
         default:
           description: Unexpected error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorModel'
+
     delete:
       summary: Delete a task
       description: |
