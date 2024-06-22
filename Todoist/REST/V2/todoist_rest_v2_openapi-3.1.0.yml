@@ -118,20 +118,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Project'
               example: 
-                summary: Example response
-                value:
-                  id: 2203306141
-                  name: Shopping List
-                  comment_count: 0
-                  color: charcoal
-                  is_shared: false
-                  order: 1
-                  is_favorite: true
-                  is_inbox_project: true
-                  is_team_inbox: false
-                  view_style: list
-                  url: https://todoist.com/showProject?id=2203306141
-                  parent_id: null
+                id: 2203306141
+                name: Shopping List
+                comment_count: 0
+                color: charcoal
+                is_shared: false
+                order: 1
+                is_favorite: true
+                is_inbox_project: true
+                is_team_inbox: false
+                view_style: list
+                url: https://todoist.com/showProject?id=2203306141
+                parent_id: null
         default:
           description: Unexpected error
           content:
@@ -170,20 +168,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Project'                  
               example: 
-                summary: Example response
-                value:
-                  id: 2203306141
-                  name: Shopping List
-                  comment_count: 0
-                  color: charcoal
-                  is_shared: false
-                  order: 1
-                  is_favorite: true
-                  is_inbox_project: true
-                  is_team_inbox: false
-                  view_style: list
-                  url: https://todoist.com/showProject?id=2203306141
-                  parent_id: null
+                id: 2203306141
+                name: Shopping List
+                comment_count: 0
+                color: charcoal
+                is_shared: false
+                order: 1
+                is_favorite: true
+                is_inbox_project: true
+                is_team_inbox: false
+                view_style: list
+                url: https://todoist.com/showProject?id=2203306141
+                parent_id: null
         default:
           description: Unexpected error
           content:
@@ -243,20 +239,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Project'
               example: 
-                summary: Example response
-                value:
-                  id: 2203306141
-                  name: Things to buy
-                  comment_count: 0
-                  color: charcoal
-                  is_shared: false
-                  order: 1
-                  is_favorite: true
-                  is_inbox_project: true
-                  is_team_inbox: false
-                  view_style: list
-                  url: https://todoist.com/showProject?id=2203306141
-                  parent_id: null
+                id: 2203306141
+                name: Things to buy
+                comment_count: 0
+                color: charcoal
+                is_shared: false
+                order: 1
+                is_favorite: true
+                is_inbox_project: true
+                is_team_inbox: false
+                view_style: list
+                url: https://todoist.com/showProject?id=2203306141
+                parent_id: null
         default:
           description: Unexpected error
           content:
@@ -367,12 +361,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Section'
               example: 
-                summary: Example response
-                value:
-                  id: 7025
-                  project_id: 2203306141
-                  order: 1
-                  name: Groceries
+                id: 7025
+                project_id: 2203306141
+                order: 1
+                name: Groceries
         default:
           description: Unexpected error
           content:
@@ -421,12 +413,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Section'
               example: 
-                summary: Example response
-                value:
-                  id: 7025
-                  project_id: 2203306141
-                  order: 1
-                  name: Groceries
+                id: 7025
+                project_id: 2203306141
+                order: 1
+                name: Groceries
         default:
           description: Unexpected error
           content:
@@ -465,12 +455,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Section'
               example: 
-                summary: Example response
-                value:
-                  id: 7025
-                  project_id: 2203306141
-                  order: 1
-                  name: Groceries
+                id: 7025
+                project_id: 2203306141
+                order: 1
+                name: Groceries
         default:
           description: Unexpected error
           content:
@@ -512,12 +500,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Section'
               example: 
-                summary: Example response
-                value:
-                  id: 7025
-                  project_id: 2203306141
-                  order: 1
-                  name: Supermarket
+                id: 7025
+                project_id: 2203306141
+                order: 1
+                name: Supermarket
         default:
           description: Unexpected error
           content:
@@ -619,32 +605,30 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-              example: 
-                summary: Example response
-                value: 
-                  - creator_id: "2671355"
-                    created_at: "2019-12-11T22:36:50.000000Z"
-                    assignee_id: "2671362"
-                    assigner_id: "2671355"
-                    comment_count: 10
-                    is_completed: false
-                    content: "Buy Milk"
-                    description: ""
-                    due: 
-                      date: "2016-09-01"
-                      is_recurring: false
-                      datetime: "2016-09-01T12:00:00.000000Z"
-                      string: "tomorrow at 12"
-                      timezone: "Europe/Moscow"
-                    duration: null
-                    id: "2995104339"
-                    labels: ["Food", "Shopping"]
-                    order: 1
-                    priority: 1
-                    project_id: "2203306141"
-                    section_id: "7025"
-                    parent_id: "2995104589"
-                    url: "https://todoist.com/showTask?id=2995104339"
+              example:
+                - creator_id: "2671355"
+                  created_at: "2019-12-11T22:36:50.000000Z"
+                  assignee_id: "2671362"
+                  assigner_id: "2671355"
+                  comment_count: 10
+                  is_completed: false
+                  content: "Buy Milk"
+                  description: ""
+                  due:
+                    date: "2016-09-01"
+                    is_recurring: false
+                    datetime: "2016-09-01T12:00:00.000000Z"
+                    string: "tomorrow at 12"
+                    timezone: "Europe/Moscow"
+                  duration: null
+                  id: "2995104339"
+                  labels: ["Food", "Shopping"]
+                  order: 1
+                  priority: 1
+                  project_id: "2203306141"
+                  section_id: "7025"
+                  parent_id: "2995104589"
+                  url: "https://todoist.com/showTask?id=2995104339"
         default:
           description: Unexpected error
           content:
@@ -792,31 +776,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
               example: 
-                summary: Example response
-                value:
-                  creator_id: "2671355"
-                  created_at: "2019-12-11T22:36:50.000000Z"
-                  assignee_id: "2671362"
-                  assigner_id: "2671355"
-                  comment_count: 10
-                  is_completed: false
-                  content: "Buy Milk"
-                  description: ""
-                  due: 
-                    date: "2016-09-01"
-                    is_recurring: false
-                    datetime: "2016-09-01T12:00:00.000000Z"
-                    string: "tomorrow at 12"
-                    timezone: "Europe/Moscow"
-                  duration: null
-                  id: "2995104339"
-                  labels: ["Food", "Shopping"]
-                  order: 1
-                  priority: 1
-                  project_id: "2203306141"
-                  section_id: "7025"
-                  parent_id: "2995104589"
-                  url: "https://todoist.com/showTask?id=2995104339"
+                creator_id: "2671355"
+                created_at: "2019-12-11T22:36:50.000000Z"
+                assignee_id: "2671362"
+                assigner_id: "2671355"
+                comment_count: 10
+                is_completed: false
+                content: "Buy Milk"
+                description: ""
+                due:
+                  date: "2016-09-01"
+                  is_recurring: false
+                  datetime: "2016-09-01T12:00:00.000000Z"
+                  string: "tomorrow at 12"
+                  timezone: "Europe/Moscow"
+                duration: null
+                id: "2995104339"
+                labels: ["Food", "Shopping"]
+                order: 1
+                priority: 1
+                project_id: "2203306141"
+                section_id: "7025"
+                parent_id: "2995104589"
+                url: "https://todoist.com/showTask?id=2995104339"
         default:
           description: Unexpected error
           content:
@@ -1061,18 +1043,16 @@ paths:
                 items:
                   $ref: '#/components/schemas/Comment'
               example: 
-                summary: Example response
-                value: 
-                  - content: "Need one bottle of milk"
-                    id: "2992679862"
-                    posted_at: "2016-09-22T07:00:00.000000Z"
-                    project_id: null
-                    task_id: "2995104339"
-                    attachment:
-                      file_name: "File.pdf"
-                      file_type: "application/pdf"
-                      file_url: "https://cdn-domain.tld/path/to/file.pdf"
-                      resource_type: "file"
+                - content: "Need one bottle of milk"
+                  id: "2992679862"
+                  posted_at: "2016-09-22T07:00:00.000000Z"
+                  project_id: null
+                  task_id: "2995104339"
+                  attachment:
+                    file_name: "File.pdf"
+                    file_type: "application/pdf"
+                    file_url: "https://cdn-domain.tld/path/to/file.pdf"
+                    resource_type: "file"
         default:
           description: Unexpected error
           content:
@@ -1136,18 +1116,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
               example: 
-                summary: Example response
-                value:
-                  content: "Need one bottle of milk"
-                  id: "2992679862"
-                  posted_at: "2016-09-22T07:00:00.000000Z"
-                  project_id: null
-                  task_id: "2995104339"
-                  attachment: 
-                    file_name: "File.pdf"
-                    file_type: "application/pdf"
-                    file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
-                    resource_type: "file"
+                content: "Need one bottle of milk"
+                id: "2992679862"
+                posted_at: "2016-09-22T07:00:00.000000Z"
+                project_id: null
+                task_id: "2995104339"
+                attachment:
+                  file_name: "File.pdf"
+                  file_type: "application/pdf"
+                  file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
+                  resource_type: "file"
         default:
           description: Unexpected error
           content:
@@ -1185,18 +1163,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
               example: 
-                summary: Example response
-                value:
-                  content: "Need one bottle of milk"
-                  id: "2992679862"
-                  posted_at: "2016-09-22T07:00:00.000000Z"
-                  project_id: null
-                  task_id: "2995104339"
-                  attachment:
-                    file_name: "File.pdf"
-                    file_type: "application/pdf"
-                    file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
-                    resource_type: "file"
+                content: "Need one bottle of milk"
+                id: "2992679862"
+                posted_at: "2016-09-22T07:00:00.000000Z"
+                project_id: null
+                task_id: "2995104339"
+                attachment:
+                  file_name: "File.pdf"
+                  file_type: "application/pdf"
+                  file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
+                  resource_type: "file"
         default:
           description: Unexpected error
           content:
@@ -1238,18 +1214,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
               example: 
-                summary: Example response
-                value:
-                  content: "Need two bottles of milk"
-                  id: "2992679862"
-                  posted_at: "2016-09-22T07:00:00.000000Z"
-                  project_id: null
-                  task_id: "2995104339"
-                  attachment:
-                    file_name: "File.pdf"
-                    file_type: "application/pdf"
-                    file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
-                    resource_type: "file"
+                content: "Need two bottles of milk"
+                id: "2992679862"
+                posted_at: "2016-09-22T07:00:00.000000Z"
+                project_id: null
+                task_id: "2995104339"
+                attachment:
+                  file_name: "File.pdf"
+                  file_type: "application/pdf"
+                  file_url: "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf"
+                  resource_type: "file"
         default:
           description: Unexpected error
           content:
@@ -1312,13 +1286,11 @@ paths:
                 items:
                   $ref: '#/components/schemas/Label'
               example: 
-                summary: Example response
-                value: 
-                  - id: "2156154810"
-                    name: "Food"
-                    color: "charcoal"
-                    order: 1
-                    is_favorite: false
+                - id: "2156154810"
+                  name: "Food"
+                  color: "charcoal"
+                  order: 1
+                  is_favorite: false
         default:
           description: Unexpected error
           content:
@@ -1372,13 +1344,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
               example: 
-                summary: Example response
-                value:
-                  id: "2156154810"
-                  name: "Food"
-                  color: "charcoal"
-                  order: 1
-                  is_favorite: false
+                id: "2156154810"
+                name: "Food"
+                color: "charcoal"
+                order: 1
+                is_favorite: false
         default:
           description: Unexpected error
           content:
@@ -1416,13 +1386,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
               example: 
-                summary: Example response
-                value:
-                  id: "2156154810"
-                  name: "Food"
-                  color: "charcoal"
-                  order: 1
-                  is_favorite: false
+                id: "2156154810"
+                name: "Food"
+                color: "charcoal"
+                order: 1
+                is_favorite: false
         default:
           description: Unexpected error
           content:
@@ -1482,13 +1450,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
               example: 
-                summary: Example response
-                value:
-                  id: "2156154810"
-                  name: "Drinks"
-                  color: "charcoal"
-                  order: 1
-                  is_favorite: false
+                id: "2156154810"
+                name: "Drinks"
+                color: "charcoal"
+                order: 1
+                is_favorite: false
         default:
           description: Unexpected error
           content:
