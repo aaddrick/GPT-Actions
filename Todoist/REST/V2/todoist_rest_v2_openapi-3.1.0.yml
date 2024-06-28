@@ -765,7 +765,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to retrieve.
       responses:
@@ -928,7 +928,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to delete.
       responses:
@@ -961,7 +961,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to close.
       responses:
@@ -992,7 +992,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to reopen.
       responses:
