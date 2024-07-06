@@ -765,7 +765,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to retrieve.
       responses:
@@ -928,7 +928,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to delete.
       responses:
@@ -961,7 +961,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to close.
       responses:
@@ -992,7 +992,7 @@ paths:
         - in: path
           name: taskId
           schema:
-            type: integer
+            type: string
           required: true
           description: The ID of the task to reopen.
       responses:
@@ -1605,12 +1605,9 @@ components:
           type: integer
           description: Task priority from 1 (normal, default value) to 4 (urgent).
         due:
-          type: 
-            - object
-            - 'null'
-          properties:
-            dueObject:
-              $ref: '#/components/schemas/Due'
+          oneOf:
+            - $ref: '#/components/schemas/Due'
+            - type: 'null'
           description: Object representing task due date/time, or null if no date is set.
         url:
           type: string
@@ -1635,12 +1632,9 @@ components:
             - 'null'
           description: The ID of the user who assigned the task (read-only, will be null if the task is unassigned).
         duration:
-          type: 
-            - object
-            - 'null'
-          properties:
-            durationObject:
-              $ref: '#/components/schemas/Duration'
+          oneOf:
+            - $ref: '#/components/schemas/Duration'
+            - type: 'null'
           description: Object representing a task's duration, including a positive integer for the amount of time and the unit of time (minute or day). The object will be null if the task has no duration.
 
     Due:
